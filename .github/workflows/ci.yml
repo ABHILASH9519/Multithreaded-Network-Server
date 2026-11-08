@@ -13,3 +13,17 @@ jobs:
         run: cmake --build build --parallel
       - name: Test
         run: ctest --test-dir build --output-on-failure
+  sanitizers:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v5
+      - name: Configure AddressSanitizer and UndefinedBehaviorSanitizer
+        run: >
+          cmake -S . -B build-sanitized
+          -DCMAKE_BUILD_TYPE=Debug
+          -DCMAKE_CXX_FLAGS="-fsanitize=address,undefined -fno-omit-frame-pointer"
+          -DCMAKE_EXE_LINKER_FLAGS="-fsanitize=address,undefined"
+      - name: Build sanitized binaries
+        run: cmake --build build-sanitized --parallel
+      - name: Run tests with sanitizers
+        run: ctest --test-dir build-sanitized --output-on-failure
