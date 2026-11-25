@@ -1,5 +1,23 @@
 # Multithreaded Network Server (C++)
 
+<!-- portfolio-visual-start -->
+## Engineering overview
+
+![C++](https://img.shields.io/badge/Stack-C%2B%2B-176b99) ![Stars](https://img.shields.io/github/stars/ABHILASH9519/Multithreaded-Network-Server)
+
+![Animated workflow](docs/portfolio-flow.svg)
+
+```mermaid
+flowchart LR
+  N0["Client"] --> N1["Socket"] --> N2["Worker pool"] --> N3["Response"]
+```
+
+Illustrative workflow: Client → Socket → Worker pool → Response. See the implementation and setup below for actual capabilities and prerequisites.
+
+[Developer profile](https://github.com/ABHILASH9519) · [Issues](https://github.com/ABHILASH9519/Multithreaded-Network-Server/issues)
+<!-- portfolio-visual-end -->
+
+
 A compact TCP server demonstrating socket programming, bounded concurrency, line-oriented request handling, and worker-pool lifecycle management.
 
 ## Features
